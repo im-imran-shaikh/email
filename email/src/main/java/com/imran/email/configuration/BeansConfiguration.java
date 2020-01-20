@@ -28,7 +28,6 @@ public class BeansConfiguration
 			message.setSubject(email.getSubject());
 			message.setText(email.getText());
 			javaMailSender.send(message);
-			
 			return "message send";
 		};
 	}
