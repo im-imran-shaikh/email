@@ -20,15 +20,15 @@ public class BeansConfiguration
 	private JavaMailSender javaMailSender;
 	
 	@Bean
-	public EmailService emailService()
+	public EmailService emailService() { return ()-> { return sendMail(); }; }
+	
+	private String sendMail()
 	{
-		return ()-> { 
-			SimpleMailMessage  message = new SimpleMailMessage ();
-			message.setTo(email.getReceipent());
-			message.setSubject(email.getSubject());
-			message.setText(email.getText());
-			javaMailSender.send(message);
-			return "message send";
-		};
+		SimpleMailMessage  message = new SimpleMailMessage ();
+		message.setTo(email.getReceipent());
+		message.setSubject(email.getSubject());
+		message.setText(email.getText());
+		javaMailSender.send(message);	
+		return "message send";
 	}
 }
