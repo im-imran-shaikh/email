@@ -8,27 +8,15 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import com.imran.email.dto.Email;
 import com.imran.email.service.EmailService;
+import com.imran.email.service.EmailServiceImpl;
 
 @Configuration
 public class BeansConfiguration 
 {
-
 	@Autowired
-	private Email email;
-	
-	@Autowired
-	private JavaMailSender javaMailSender;
+	private EmailServiceImpl emailServiceImpl;
 	
 	@Bean
-	public EmailService emailService() { return ()-> { return sendMail(); }; }
+	public EmailService emailService() { return ()-> { return emailServiceImpl.sendMail(); }; }
 	
-	private String sendMail()
-	{
-		SimpleMailMessage  message = new SimpleMailMessage ();
-		message.setTo(email.getReceipent());
-		message.setSubject(email.getSubject());
-		message.setText(email.getText());
-		javaMailSender.send(message);	
-		return "message send";
-	}
 }
