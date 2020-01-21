@@ -19,9 +19,9 @@ public class emailController
 	private Email email;
 	
 	@GetMapping(path = "/sendEmail")
-	private String sendMessage(@RequestParam String receipent, @RequestParam String subject, @RequestParam String body)
+	private String sendMessage(@RequestParam String recipient, @RequestParam String subject, @RequestParam String body)
 	{	
-		email.setReceipent(receipent);
+		email.setReceipent(recipient);
 		email.setSubject(subject);
 		email.setText(body);
 		

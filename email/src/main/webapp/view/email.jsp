@@ -15,9 +15,9 @@
 <body>
 	<form action="/sendEmail">
 		<h2>
-			Enter receipent email address &nbsp; <input id="textboxid"
-				type="text" name="receipent"
-				, placeholder="Receipent" , style = "width : 300px", required /> <br> <br>
+			Enter recipient email address &nbsp; <input id="textboxid"
+				type="text" name="recipient"
+				, placeholder="Recipient" , style = "width : 300px", required /> <br> <br>
 			Enter subject &nbsp; <input id="textboxid" type="text" name="subject"
 				, placeholder="Subject" , style="width: 500px"
 				,  required /> <br>
